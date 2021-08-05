@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sunresh</title>
+	<meta name="description" content="The small framework with powerful features">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" >
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" >
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" ></script>
+</head>
+<body ng-app="main-App" class="container-fluid">
+<header>
+	<div class="menu">
+		<ul class="nav nav-tabs" role="tablist">
+			<li class="menu-item active" role="presentation" ><a href="#!/">Home</a></li>
+			<li class="menu-item "><a href="#!/dashboard">Dashboard</a></li>
+			<li class="menu-item "><a href="#!/download">Downloads</a></li>
+			<li class="menu-item "><a href="#!/about">About</a></li>
+		</ul>
+	</div>
+
+</header>
+
+<div ng-view></div>
+
+
+<script>
+    $(".nav li").on("click", function() {
+      $(".nav li").removeClass("active");
+      $(this).addClass("active");
+    });
+</script>
+<script>
+
+var app =  angular.module('main-App',['ngRoute',]);
+app.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.
+            when('/', {
+                templateUrl: 'partial/home.html',
+                controller: 'AdminController'
+            }).
+            when('/dashboard', {
+                templateUrl: 'partial/dashboard.html',
+                controller: 'ItemController'
+            }).
+            when('/download', {
+                templateUrl: 'partial/download.html',
+                controller: 'AdminController'
+            }).
+            when('/about', {
+                templateUrl: 'partial/about.html',
+                controller: 'ItemController'
+            });
+}]);
+
+</script>
+
+
+</body>
+</html>
