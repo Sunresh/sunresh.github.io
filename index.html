@@ -12,7 +12,7 @@
 <header>
 	<nav class="nav">
 		<ul class="nav nav-tabs" role="tablist">
-			<li class="nav-item active" role="presentation" ><a class="nav-link" href="#!/">Home</a></li>
+			<li class="nav-item active bg-warning " role="presentation" ><a class="nav-link" href="#!/">Home</a></li>
           <li class="nav-item "><a class="nav-link" href="#!/dashboard">Dashboard</a></li>
           <li class="menu-item "><a class="nav-link" href="#!/download">Downloads</a></li>
           <li class="menu-item "><a class="nav-link" href="#!/about">About</a></li>
@@ -31,8 +31,8 @@
  
 <script>
     $(".nav li").on("click", function() {
-      $(".nav li").removeClass("active");
-      $(this).addClass("active bg-success");
+      $(".nav li").removeClass("active bg-warning");
+      $(this).addClass("active bg-warning");
     });
 </script>
 <script>
