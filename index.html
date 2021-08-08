@@ -10,14 +10,15 @@
 </head>
 <body ng-app="main-App" class="container-fluid">
 <header>
-	<nav class="nav">
-		<ul class="nav nav-tabs" role="tablist">
-			<li class="nav-item active bg-warning " role="presentation" ><a class="nav-link" href="#!/">Home</a></li>
-          <li class="nav-item "><a class="nav-link" href="#!/dashboard">Dashboard</a></li>
-          <li class="menu-item "><a class="nav-link" href="#!/download">Downloads</a></li>
-          <li class="menu-item "><a class="nav-link" href="#!/about">About</a></li>
-		</ul>
-	</nav>
+<nav class="nav">
+	<ul class="nav nav-tabs" role="tablist">
+	  <li class="nav-item active bg-warning " role="presentation" ><a class="nav-link" href="#!/">Home</a></li>
+      <li class="nav-item "><a class="nav-link" href="#!/dashboard">Dashboard</a></li>
+      <li class="menu-item "><a class="nav-link" href="#!/download">Downloads</a></li>
+      <li class="menu-item "><a class="nav-link" href="#!/math">Mathematics</a></li>
+      <li class="menu-item "><a class="nav-link" href="#!/about">About</a></li>
+	</ul>
+</nav>
 </header>
 
 <div ng-view></div>
@@ -39,30 +40,14 @@
     });
 </script>
 <script>
-
 var app =  angular.module('main-App',['ngRoute',]);
-app.config(['$routeProvider',
-    function($routeProvider) {
-        $routeProvider.
-            when('/', {
-                templateUrl: 'partial/home.html',
-                controller: 'AdminController'
-            }).
-            when('/dashboard', {
-                templateUrl: 'partial/dashboard.html',
-                controller: 'ItemController'
-            }).
-            when('/download', {
-                templateUrl: 'partial/download.html',
-                controller: 'AdminController'
-            }).
-            when('/about', {
-                templateUrl: 'partial/about.html',
-                controller: 'ItemController'
-            });
+app.config(['$routeProvider',function($routeProvider){$routeProvider.
+            when('/',{templateUrl:'partial/home.html',controller:'AdminController'}).
+            when('/dashboard',{templateUrl:'partial/dashboard.html',controller:'ItemController'}).
+            when('/download',{templateUrl:'partial/download.html',controller:'AdminController'}).
+            when('/math',{templateUrl:'partial/math.html',controller:'MathCtrl'}).
+            when('/about',{templateUrl:'partial/about.html',controller:'ItemController'});
 }]);
-
 </script>
-
 </body>
 </html>
